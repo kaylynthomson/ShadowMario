@@ -1,0 +1,12 @@
+I incorporated some changes to Project 2b from Project 2a:
+1. All game entities (coin, enemy, etc) except for player are child classes of MovableEntity. They share a move method
+that happens due to the user's input on the left and right arrow keys. This is to remove code duplication.
+Player is not a child of MovableEntity since it technically doesn't "move" left or right and doesn't have a speed.
+
+2. I removed the CollectableEntity inheritance and used a collectable interface instead. This is because if I
+included CollectableEntity as a child of MovableEntity, it might result in high coupling.
+
+3. I utilized sub type polymorphism by using inheritance and interfaces to store the game entities into array lists.
+This is done to update conditions for certain entities easily through looping through these array lists. For example,
+I added the power interface to check the power's (double score and invincible power) active condition in the Level
+class, and deactivate it such that it does not go over the max frames.
